@@ -49,24 +49,14 @@
                 </tr>
             </thead>
             <tbody>
+                <% _.each(items, function (item) { %>
                 <tr>
-                    <td>Red Widget</td>
-                    <td>Standard widget with a red exterior</td>
-                    <td>1</td>
-                    <td>19.99</td>
+                    <td><%= item.name %></td>
+                    <td><%= item.description %></td>
+                    <td><%= item.quantity %></td>
+                    <td><%= item.price %></td>
                 </tr>
-                <tr>
-                    <td>Blue Widget</td>
-                    <td>Standard widget with a blue exterior</td>
-                    <td>1</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Widget Pro</td>
-                    <td>Deluxe version of the standard widget</td>
-                    <td>1</td>
-                    <td>29.99</td>
-                </tr>
+                <% }); %>
             </tbody>
         </table>
     </div>
@@ -98,45 +88,46 @@
             <div class="row">
                 <div class="large-12 columns">
                     <label>Name
-                        <input type="text" />
+                        <input id="name" type="text" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
                     <label>Address
-                        <input type="text" />
+                        <input id="address" type="text" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 columns">
                     <label>City
-                        <input type="text" />
+                        <input id="city" type="text" />
                     </label>
                 </div>
                 <div class="large-4 columns">
                     <label>State
-                        <select>
+                        <select id="state">
+                            <option value="">Select</option>
                             <option value="TN">TN</option>
                         </select>
                     </label>
                 </div>
                 <div class="large-4 columns">
                     <label>Zip Code
-                        <input type="text" />
+                        <input id="zipcode" type="text" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-6 columns">
                     <label>Email
-                        <input type="text" />
+                        <input id="email" type="text" />
                     </label>
                 </div>
                 <div class="large-6 columns">
                     <label>Phone
-                        <input type="text" />
+                        <input id="phone" type="text" />
                     </label>
                 </div>
             </div>
@@ -171,15 +162,16 @@
             <div class="row">
                 <div class="large-4 columns">
                     <label>Name on Card
-                        <input type="text" />
+                        <input id="cc-name" type="text" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 columns">
                     <label>Type
-                        <select>
-                            <option value="Visa">Visa</option>
+                        <select id="cc-type">
+                            <option value="">Select</option>
+                            <option value="VISA">Visa</option>
                         </select>
                     </label>
                 </div>
@@ -187,21 +179,21 @@
             <div class="row">
                 <div class="large-4 columns">
                     <label>Number
-                        <input type="text" />
+                        <input id="cc-number" type="text" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 columns">
                     <label>Expiration Date
-                        <input type="text" />
+                        <input id="cc-exp-date" type="text" />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 columns">
                     <label>Security Code
-                        <input type="text" />
+                        <input id="cc-security-code" type="text" />
                     </label>
                 </div>
             </div>
@@ -230,27 +222,28 @@
 
         <div class="panel">
             <h3>Order Details</h3>
-            <p>Item 1 <br/>
-                Item 2</p>
+            <p><% _.each(items, function (item) { %>
+                    <%= item.name %><br/>
+                <% }); %></p>
 
             <hr/>
 
             <h3>Customer Details</h3>
-            <p>Name: <br/>
-                Address: <br/>
-                City: <br/>
-                State: <br/>
-                Zip Code: <br/>
-                Email: <br/>
-                Phone: </p>
+            <p>Name: <%= name %><br/>
+                Address: <%= address %><br/>
+                City: <%= city %><br/>
+                State: <%= state %><br/>
+                Zip Code: <%= zipcode %><br/>
+                Email: <%= email %><br/>
+                Phone: <%= phone %></p>
 
             <hr/>
 
             <h3>Payment Details</h3>
-            <p>Name on Card: <br/>
-                Type: <br/>
-                Number: <br/>
-                Expiration Date: </p>
+            <p>Name on Card: <%= ccName %><br/>
+                Type: <%= ccType %><br/>
+                Number: <%= ccNumber %><br/>
+                Expiration Date: <%= ccExpDate %></p>
         </div>
     </div>
 </script>
