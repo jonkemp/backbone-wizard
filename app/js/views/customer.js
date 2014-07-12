@@ -16,13 +16,28 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             'click #back': 'previousStep'
         },
 
+        bindings: {
+            '#name': 'name',
+            '#address': 'address',
+            '#city': 'city',
+            '#state': 'state',
+            '#zipcode': 'zipcode',
+            '#email': 'email',
+            '#phone': 'phone'
+        },
+
         initialize: function () {
-            //this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'change', this.verify);
         },
 
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.model.attributes));
+            this.stickit();
             return this;
+        },
+
+        verify: function () {
+            console.log(this.model.attributes);
         },
 
         nextStep: function (event) {

@@ -16,16 +16,19 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         },
 
         initialize: function () {
-            //this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.collection, 'add', this.render);
         },
 
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template({ items: this.collection.toJSON() }));
             return this;
         },
 
         nextStep: function (event) {
             event.preventDefault();
+
+            this.model.set({ items: this.collection.toJSON() });
+
             BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
         }
 

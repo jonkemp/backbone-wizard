@@ -16,13 +16,26 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             'click #back': 'previousStep'
         },
 
+        bindings: {
+            '#cc-name': 'ccName',
+            '#cc-type': 'ccType',
+            '#cc-number': 'ccNumber',
+            '#cc-exp-date': 'ccExpDate',
+            '#cc-security-code': 'ccSecurityCode'
+        },
+
         initialize: function () {
-            //this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'change', this.verify);
         },
 
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.model.attributes));
+            this.stickit();
             return this;
+        },
+
+        verify: function () {
+            console.log(this.model.attributes);
         },
 
         nextStep: function (event) {
