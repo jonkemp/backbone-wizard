@@ -20,16 +20,16 @@ BackboneWizard.Routers = BackboneWizard.Routers || {};
                 this.customerView.remove();
             }
 
+            router.itemList = new BackboneWizard.Collections.ItemList();
+
             $.get('/appData.json').done(function (data) {
                 router.transaction = new BackboneWizard.Models.Transaction(data);
-                router.itemList = new BackboneWizard.Collections.ItemList();
-                //router.transaction.set('items', router.itemList.toJSON());
                 router.itemView = new BackboneWizard.Views.ItemView({ model: router.transaction, collection: router.itemList });
                 $('#wizard').html(router.itemView.render().el);
+            });
 
-                $.get('/itemData.json').done(function (data) {
-                    router.itemList.add(data);
-                });
+            $.get('/itemData.json').done(function (data) {
+                router.itemList.add(data);
             });
         },
 
