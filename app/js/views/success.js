@@ -11,12 +11,6 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
         className: 'row',
 
-        events: {},
-
-        initialize: function () {
-            //this.listenTo(this.model, 'change', this.render);
-        },
-
         render: function () {
             this.$el.html(this.template(this.model.attributes));
             return this;

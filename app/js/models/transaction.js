@@ -7,11 +7,6 @@ BackboneWizard.Models = BackboneWizard.Models || {};
 
     BackboneWizard.Models.Transaction = Backbone.Model.extend({
 
-        url: '',
-
-        initialize: function() {
-        },
-
         defaults: {
             'name': '',
             'address': '',
@@ -26,13 +21,6 @@ BackboneWizard.Models = BackboneWizard.Models || {};
             'ccExpDate': '',
             'ccSecurityCode': '',
             'items': []
-        },
-
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
-            return response;
         }
     });
 
