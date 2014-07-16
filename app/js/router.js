@@ -16,15 +16,15 @@ BackboneWizard.Routers = BackboneWizard.Routers || {};
         index: function () {
             var router = this;
 
-            if (this.customerView) {
-                this.customerView.remove();
+            if (this.currentView) {
+                this.currentView.remove();
             }
 
             router.itemList = new BackboneWizard.Collections.ItemList();
 
             $.get('/appData.json').done(function (data) {
                 router.transaction = new BackboneWizard.Models.Transaction(data);
-                router.itemView = new BackboneWizard.Views.ItemView({ model: router.transaction, collection: router.itemList });
+                router.itemView = router.currentView = new BackboneWizard.Views.ItemView({ model: router.transaction, collection: router.itemList });
                 $('#wizard').html(router.itemView.render().el);
             });
 
@@ -34,23 +34,20 @@ BackboneWizard.Routers = BackboneWizard.Routers || {};
         },
 
         showVerify: function () {
-            this.itemView.remove();
-            if (this.paymentView) {
-                this.paymentView.remove();
-            }
-            this.customerView = new BackboneWizard.Views.CustomerView({ model: this.transaction });
+            this.currentView.remove();
+            this.customerView = this.currentView = new BackboneWizard.Views.CustomerView({ model: this.transaction });
             $('#wizard').html(this.customerView.render().el);
         },
 
         showPayment: function () {
-            this.customerView.remove();
-            this.paymentView = new BackboneWizard.Views.PaymentView({ model: this.transaction });
+            this.currentView.remove();
+            this.paymentView = this.currentView = new BackboneWizard.Views.PaymentView({ model: this.transaction });
             $('#wizard').html(this.paymentView.render().el);
         },
 
         showSuccess: function () {
-            this.paymentView.remove();
-            this.successView = new BackboneWizard.Views.SuccessView({ model: this.transaction });
+            this.currentView.remove();
+            this.successView = this.currentView = new BackboneWizard.Views.SuccessView({ model: this.transaction });
             $('#wizard').html(this.successView.render().el);
         }
     });
