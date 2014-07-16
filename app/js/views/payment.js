@@ -25,17 +25,21 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         },
 
         initialize: function () {
-            this.listenTo(this.model, 'change', this.verify);
+            var view = this;
+
+            function log() {
+                console.log(view.model.attributes);
+            }
+
+            var verify = _.debounce(log, 1000);
+
+            view.model.on('change', verify);
         },
 
         render: function () {
             this.$el.html(this.template(this.model.attributes));
             this.stickit();
             return this;
-        },
-
-        verify: function () {
-            console.log(this.model.attributes);
         },
 
         nextStep: function (event) {
