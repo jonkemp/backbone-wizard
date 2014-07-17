@@ -12,7 +12,8 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         className: 'row',
 
         events: {
-            'click #next': 'nextStep'
+            'click #next': 'nextStep',
+            'click .tabs a': 'gotoRoute'
         },
 
         initialize: function () {
@@ -30,6 +31,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             this.model.set({ items: this.collection.toJSON() });
 
             BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
+        },
+
+        gotoRoute: function (event) {
+            event.preventDefault();
+
+            var href = $(event.target).attr('href');
+            BackboneWizard.wizardRouter.navigate(href, {trigger: true});
         }
 
     });
