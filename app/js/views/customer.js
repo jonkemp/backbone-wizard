@@ -47,7 +47,10 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
         nextStep: function (event) {
             event.preventDefault();
-            BackboneWizard.wizardRouter.navigate('payment', {trigger: true});
+
+            if (this.validate()) {
+                BackboneWizard.wizardRouter.navigate('payment', {trigger: true});
+            }
         },
 
         previousStep: function (event) {
@@ -59,7 +62,23 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             event.preventDefault();
 
             var href = $(event.target).attr('href');
-            BackboneWizard.wizardRouter.navigate(href, {trigger: true});
+
+            if (this.validate()) {
+                BackboneWizard.wizardRouter.navigate(href, {trigger: true});
+            }
+        },
+
+        validate: function() {
+            var valid = true;
+
+            if (this.$('#name').val() === '') {
+                this.$('#name').addClass('error');
+                this.$('#name').parents('label').addClass('error');
+                this.$('#name').parents('label').after('<small class="error">Invalid entry</small>');
+                valid = false;
+            }
+
+            return valid;
         }
 
     });
