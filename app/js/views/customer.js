@@ -30,7 +30,7 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             var view = this;
 
             function log() {
-                console.log(view.model.attributes);
+                console.log(JSON.stringify(view.model.changed));
             }
 
             var verify = _.debounce(log, 1000);
