@@ -18,6 +18,7 @@ BackboneWizard.Routers = BackboneWizard.Routers || {};
 
             if (this.currentView) {
                 this.currentView.remove();
+                this.currentView.off();
             }
 
             router.itemList = new BackboneWizard.Collections.ItemList();
@@ -35,18 +36,24 @@ BackboneWizard.Routers = BackboneWizard.Routers || {};
 
         showVerify: function () {
             this.currentView.remove();
+            this.currentView.off();
+
             this.customerView = this.currentView = new BackboneWizard.Views.CustomerView({ model: this.transaction });
             $('#wizard').html(this.customerView.render().el);
         },
 
         showPayment: function () {
             this.currentView.remove();
+            this.currentView.off();
+
             this.paymentView = this.currentView = new BackboneWizard.Views.PaymentView({ model: this.transaction });
             $('#wizard').html(this.paymentView.render().el);
         },
 
         showSuccess: function () {
             this.currentView.remove();
+            this.currentView.off();
+
             this.successView = this.currentView = new BackboneWizard.Views.SuccessView({ model: this.transaction });
             $('#wizard').html(this.successView.render().el);
         }
