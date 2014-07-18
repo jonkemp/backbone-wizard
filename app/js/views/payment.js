@@ -45,7 +45,10 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
         nextStep: function (event) {
             event.preventDefault();
-            BackboneWizard.wizardRouter.navigate('success', {trigger: true});
+
+            if (this.validate()) {
+                BackboneWizard.wizardRouter.navigate('success', {trigger: true});
+            }
         },
 
         previousStep: function (event) {
@@ -57,7 +60,71 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             event.preventDefault();
 
             var href = $(event.target).attr('href');
-            BackboneWizard.wizardRouter.navigate(href, {trigger: true});
+
+            if (this.validate()) {
+                BackboneWizard.wizardRouter.navigate(href, {trigger: true});
+            }
+        },
+
+        validate: function() {
+            var valid = true,
+                $ccName = this.$('#cc-name'),
+                $ccType = this.$('#cc-type'),
+                $ccNumber = this.$('#cc-number'),
+                $ccExpDate = this.$('#cc-exp-date'),
+                $ccSecurityCode = this.$('#cc-security-code');
+
+            if ($ccName.val() === '') {
+                if (!$ccName.hasClass('error')) {
+                    $ccName.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($ccType.val() === '') {
+                if (!$ccType.hasClass('error')) {
+                    $ccType.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($ccNumber.val() === '') {
+                if (!$ccNumber.hasClass('error')) {
+                    $ccNumber.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($ccExpDate.val() === '') {
+                if (!$ccExpDate.hasClass('error')) {
+                    $ccExpDate.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($ccSecurityCode.val() === '') {
+                if (!$ccSecurityCode.hasClass('error')) {
+                    $ccSecurityCode.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            return valid;
         }
 
     });
