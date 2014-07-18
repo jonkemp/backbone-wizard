@@ -69,12 +69,82 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         },
 
         validate: function() {
-            var valid = true;
+            var valid = true,
+                $name = this.$('#name'),
+                $address = this.$('#address'),
+                $city = this.$('#city'),
+                $state = this.$('#state'),
+                $zipcode = this.$('#zipcode'),
+                $email = this.$('#email'),
+                $phone = this.$('#phone');
 
-            if (this.$('#name').val() === '') {
-                this.$('#name').addClass('error');
-                this.$('#name').parents('label').addClass('error');
-                this.$('#name').parents('label').after('<small class="error">Invalid entry</small>');
+            if ($name.val() === '') {
+                if (!$name.hasClass('error')) {
+                    $name.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($address.val() === '') {
+                if (!$address.hasClass('error')) {
+                    $address.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($city.val() === '') {
+                if (!$city.hasClass('error')) {
+                    $city.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($state.val() === '') {
+                if (!$state.hasClass('error')) {
+                    $state.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($zipcode.val() === '') {
+                if (!$zipcode.hasClass('error')) {
+                    $zipcode.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($email.val() === '') {
+                if (!$email.hasClass('error')) {
+                    $email.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
+                valid = false;
+            }
+
+            if ($phone.val() === '') {
+                if (!$phone.hasClass('error')) {
+                    $phone.addClass('error')
+                        .parents('label').addClass('error')
+                        .after('<small class="error">Invalid entry</small>');
+                }
+
                 valid = false;
             }
 
