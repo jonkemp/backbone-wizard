@@ -86,6 +86,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($name.hasClass('error')) {
+                    $name.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($address.val() === '') {
@@ -96,6 +103,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($address.hasClass('error')) {
+                    $address.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($city.val() === '') {
@@ -106,6 +120,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($city.hasClass('error')) {
+                    $city.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($state.val() === '') {
@@ -116,6 +137,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($state.hasClass('error')) {
+                    $state.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($zipcode.val() === '') {
@@ -126,6 +154,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($zipcode.hasClass('error')) {
+                    $zipcode.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($email.val() === '') {
@@ -136,6 +171,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($email.hasClass('error')) {
+                    $email.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($phone.val() === '') {
@@ -146,6 +188,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($phone.hasClass('error')) {
+                    $phone.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             return valid;

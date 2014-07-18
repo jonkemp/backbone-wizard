@@ -82,6 +82,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($ccName.hasClass('error')) {
+                    $ccName.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($ccType.val() === '') {
@@ -92,6 +99,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($ccType.hasClass('error')) {
+                    $ccType.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($ccNumber.val() === '') {
@@ -102,6 +116,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($ccNumber.hasClass('error')) {
+                    $ccNumber.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($ccExpDate.val() === '') {
@@ -112,6 +133,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($ccExpDate.hasClass('error')) {
+                    $ccExpDate.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             if ($ccSecurityCode.val() === '') {
@@ -122,6 +150,13 @@ BackboneWizard.Views = BackboneWizard.Views || {};
                 }
 
                 valid = false;
+
+            } else {
+                if ($ccSecurityCode.hasClass('error')) {
+                    $ccSecurityCode.removeClass('error')
+                        .parents('label').removeClass('error')
+                        .next().remove();
+                }
             }
 
             return valid;
