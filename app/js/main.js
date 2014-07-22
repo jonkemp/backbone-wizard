@@ -5,6 +5,7 @@ window.BackboneWizard = {
     Models: {},
     Collections: {},
     Views: {},
+    Controllers: {},
     Routers: {},
     init: function () {
         'use strict';
