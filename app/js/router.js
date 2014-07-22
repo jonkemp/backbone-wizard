@@ -14,48 +14,19 @@ BackboneWizard.Routers = BackboneWizard.Routers || {};
         },
 
         index: function () {
-            var router = this;
-
-            if (this.currentView) {
-                this.currentView.remove();
-                this.currentView.off();
-            }
-
-            router.itemList = new BackboneWizard.Collections.ItemList();
-
-            $.get('/appData.json').done(function (data) {
-                router.transaction = new BackboneWizard.Models.Transaction(data);
-                router.itemView = router.currentView = new BackboneWizard.Views.ItemView({ model: router.transaction, collection: router.itemList });
-                $('#wizard').html(router.itemView.render().el);
-            });
-
-            $.get('/itemData.json').done(function (data) {
-                router.itemList.add(data);
-            });
+            BackboneWizard.Controllers.WizardController.index();
         },
 
         showVerify: function () {
-            this.currentView.remove();
-            this.currentView.off();
-
-            this.customerView = this.currentView = new BackboneWizard.Views.CustomerView({ model: this.transaction });
-            $('#wizard').html(this.customerView.render().el);
+            BackboneWizard.Controllers.WizardController.showVerify();
         },
 
         showPayment: function () {
-            this.currentView.remove();
-            this.currentView.off();
-
-            this.paymentView = this.currentView = new BackboneWizard.Views.PaymentView({ model: this.transaction });
-            $('#wizard').html(this.paymentView.render().el);
+            BackboneWizard.Controllers.WizardController.showPayment();
         },
 
         showSuccess: function () {
-            this.currentView.remove();
-            this.currentView.off();
-
-            this.successView = this.currentView = new BackboneWizard.Views.SuccessView({ model: this.transaction });
-            $('#wizard').html(this.successView.render().el);
+            BackboneWizard.Controllers.WizardController.showSuccess();
         }
     });
 
