@@ -15,6 +15,8 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
                 ctrl.currentView.off();
             }
 
+            BackboneWizard.wizardRouter.navigate('');
+
             ctrl.itemList = new BackboneWizard.Collections.ItemList();
 
             $.get('/appData.json').done(function (data) {
@@ -25,8 +27,6 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
                 ctrl.itemView.on('wizard:verify', ctrl.showVerify, ctrl);
 
                 $('#wizard').html(ctrl.itemView.render().el);
-
-                BackboneWizard.wizardRouter.navigate('');
             });
 
             $.get('/itemData.json').done(function (data) {
