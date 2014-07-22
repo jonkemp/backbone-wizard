@@ -48,14 +48,16 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         nextStep: function (event) {
             event.preventDefault();
 
-            if (this.validate()) {
+            /*if (this.validate()) {
                 BackboneWizard.wizardRouter.navigate('payment', {trigger: true});
-            }
+            }*/
+            this.trigger('wizard:payment');
         },
 
         previousStep: function (event) {
             event.preventDefault();
-            BackboneWizard.wizardRouter.navigate('', {trigger: true});
+            //BackboneWizard.wizardRouter.navigate('', {trigger: true});
+            this.trigger('wizard:index');
         },
 
         gotoRoute: function (event) {

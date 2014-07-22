@@ -30,14 +30,15 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
             this.model.set({ items: this.collection.toJSON() });
 
-            BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
+            //BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
+            this.trigger('wizard:verify');
         },
 
         gotoRoute: function (event) {
             event.preventDefault();
 
-            var href = $(event.target).attr('href');
-            BackboneWizard.wizardRouter.navigate(href, {trigger: true});
+            //var href = $(event.target).attr('href');
+            //BackboneWizard.wizardRouter.navigate(href, {trigger: true});
         }
 
     });

@@ -46,14 +46,16 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         nextStep: function (event) {
             event.preventDefault();
 
-            if (this.validate()) {
+            /*if (this.validate()) {
                 BackboneWizard.wizardRouter.navigate('success', {trigger: true});
-            }
+            }*/
+            this.trigger('wizard:success');
         },
 
         previousStep: function (event) {
             event.preventDefault();
-            BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
+            //BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
+            this.trigger('wizard:verify');
         },
 
         gotoRoute: function (event) {
