@@ -36,7 +36,7 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
             var verify = _.debounce(log, 1000);
 
-            view.model.on('change', verify);
+            view.listenTo(view.model, 'change', verify);
         },
 
         render: function () {
