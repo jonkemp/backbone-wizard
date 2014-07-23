@@ -53,7 +53,7 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
         previousStep: function (event) {
             event.preventDefault();
-            //BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
+
             this.trigger('wizard:verify');
         },
 

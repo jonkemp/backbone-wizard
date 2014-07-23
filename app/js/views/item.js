@@ -29,7 +29,6 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
             this.model.set({ items: this.collection.toJSON() });
 
-            //BackboneWizard.wizardRouter.navigate('verify', {trigger: true});
             this.trigger('wizard:verify');
         }
 

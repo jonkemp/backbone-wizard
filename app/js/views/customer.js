@@ -55,7 +55,7 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
         previousStep: function (event) {
             event.preventDefault();
-            //BackboneWizard.wizardRouter.navigate('', {trigger: true});
+
             this.trigger('wizard:index');
         },
 
