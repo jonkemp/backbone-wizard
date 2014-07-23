@@ -10,7 +10,20 @@ window.BackboneWizard = {
     init: function () {
         'use strict';
 
-        this.wizardRouter = new BackboneWizard.Routers.WizardRouter();
+        var self = this;
+
+        self.itemList = new BackboneWizard.Collections.ItemList();
+        self.transaction = new BackboneWizard.Models.Transaction();
+
+        $.get('/appData.json').done(function (data) {
+            self.transaction.set(data);
+        });
+
+        $.get('/itemData.json').done(function (data) {
+            self.itemList.add(data, { merge: true });
+        });
+
+        self.wizardRouter = new BackboneWizard.Routers.WizardRouter();
 
         Backbone.history.start();
     }
