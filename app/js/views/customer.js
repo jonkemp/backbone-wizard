@@ -13,8 +13,7 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
         events: {
             'click #next': 'nextStep',
-            'click #back': 'previousStep',
-            'click .tabs a': 'gotoRoute'
+            'click #back': 'previousStep'
         },
 
         bindings: {
@@ -58,16 +57,6 @@ BackboneWizard.Views = BackboneWizard.Views || {};
             event.preventDefault();
             //BackboneWizard.wizardRouter.navigate('', {trigger: true});
             this.trigger('wizard:index');
-        },
-
-        gotoRoute: function (event) {
-            event.preventDefault();
-
-            var href = $(event.target).attr('href');
-
-            if (this.validate()) {
-                BackboneWizard.wizardRouter.navigate(href, {trigger: true});
-            }
         },
 
         validate: function() {
