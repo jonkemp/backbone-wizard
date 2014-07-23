@@ -12,7 +12,7 @@ window.BackboneWizard = {
 
         this.wizardRouter = new BackboneWizard.Routers.WizardRouter();
 
-        Backbone.history.start({pushState: true});
+        Backbone.history.start();
     }
 };
 

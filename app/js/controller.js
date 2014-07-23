@@ -15,7 +15,7 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
                 ctrl.currentView.off();
             }
 
-            BackboneWizard.wizardRouter.navigate('');
+            BackboneWizard.wizardRouter.navigate('#/');
 
             ctrl.itemList = new BackboneWizard.Collections.ItemList();
 
@@ -38,7 +38,7 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
             this.currentView.remove();
             this.currentView.off();
 
-            BackboneWizard.wizardRouter.navigate('verify');
+            BackboneWizard.wizardRouter.navigate('#/verify');
 
             this.customerView = this.currentView = new BackboneWizard.Views.CustomerView({ model: this.transaction });
 
@@ -52,7 +52,7 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
             this.currentView.remove();
             this.currentView.off();
 
-            BackboneWizard.wizardRouter.navigate('payment');
+            BackboneWizard.wizardRouter.navigate('#/payment');
 
             this.paymentView = this.currentView = new BackboneWizard.Views.PaymentView({ model: this.transaction });
 
@@ -66,7 +66,7 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
             this.currentView.remove();
             this.currentView.off();
 
-            BackboneWizard.wizardRouter.navigate('success');
+            BackboneWizard.wizardRouter.navigate('#/success');
 
             this.successView = this.currentView = new BackboneWizard.Views.SuccessView({ model: this.transaction });
             $('#wizard').html(this.successView.render().el);
