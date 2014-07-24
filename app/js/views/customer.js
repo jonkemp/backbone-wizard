@@ -47,10 +47,9 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         nextStep: function (event) {
             event.preventDefault();
 
-            /*if (this.validate()) {
-                BackboneWizard.wizardRouter.navigate('payment', {trigger: true});
-            }*/
-            this.trigger('wizard:payment');
+            if (this.validate()) {
+                this.trigger('wizard:payment');
+            }
         },
 
         previousStep: function (event) {

@@ -45,10 +45,9 @@ BackboneWizard.Views = BackboneWizard.Views || {};
         nextStep: function (event) {
             event.preventDefault();
 
-            /*if (this.validate()) {
-                BackboneWizard.wizardRouter.navigate('success', {trigger: true});
-            }*/
-            this.trigger('wizard:success');
+            if (this.validate()) {
+                this.trigger('wizard:success');
+            }
         },
 
         previousStep: function (event) {
