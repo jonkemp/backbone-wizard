@@ -29,6 +29,7 @@ BackboneWizard.Views = BackboneWizard.Views || {};
 
             this.model.set({ items: this.collection.toJSON() });
 
+            BackboneWizard.state.set({ 'current': 'verify' });
             this.trigger('wizard:verify');
         }
 
