@@ -63,7 +63,9 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
         },
 
         showSuccess: function () {
-            if (BackboneWizard.state.get('current') === 'success') {
+            var state = BackboneWizard.state.get('current');
+
+            if (state === 'success') {
                 this.currentView.remove();
                 this.currentView.off();
 
@@ -73,15 +75,15 @@ BackboneWizard.Controllers = BackboneWizard.Controllers || {};
                 $('#wizard').html(this.successView.render().el);
             }
 
-            if (BackboneWizard.state.get('current') === 'index') {
+            if (state === 'index') {
                 this.index();
             }
 
-            if (BackboneWizard.state.get('current') === 'verify') {
+            if (state === 'verify') {
                 this.showVerify();
             }
 
-            if (BackboneWizard.state.get('current') === 'payment') {
+            if (state === 'payment') {
                 this.showPayment();
             }
         }
